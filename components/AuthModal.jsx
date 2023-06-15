@@ -15,8 +15,6 @@ export const AuthModal = () => {
   const router = useRouter();
   const { isOpen, onClose } = useAuthModal();
 
-  console.log(session);
-
   useEffect(() => {
     if (session) {
       onClose();

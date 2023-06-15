@@ -1,34 +1,49 @@
 import Image from "next/image";
 import React from "react";
+import { useLoadImage } from "../hooks/useLoadImage";
+import Link from "next/link";
 
 export const HorizontalCard = ({
   image = "/images/liked.png",
   text = "Canciones que te gustan",
+  small,
+  url = "/",
 }) => {
+  const imageUrl = useLoadImage(image);
+
   return (
-    <div className="bg-neutral-100/10 flex rounded items-center gap-2 hover:bg-neutral-400/10 cursor-pointer transition-all duration-200 group relative">
+    <Link
+      href={url}
+      className={` ${
+        small ? "bg-neutral-600/10" : "bg-neutral-100/10"
+      } flex rounded items-center gap-2 hover:bg-neutral-400/10 cursor-pointer transition-all duration-200 group relative animate__animated animate__fadeIn`}
+    >
       <Image
-        src={image}
+        src={imageUrl}
         alt="like"
-        width={70}
-        height={70}
-        className="rounded"
+        width={small ? 40 : 70}
+        height={small ? 40 : 70}
+        className="rounded h-full object-cover"
       />
 
       <div className="p-2">
-        <h1 className="font-bold">{text}</h1>
+        <h1 className={small ? "text-sm truncate text-zinc-400" : "font-bold"}>
+          {text}
+        </h1>
       </div>
 
       <div
-        className="absolute bg-green-500 w-fit p-2 text-neutral-900 rounded-full transition-all duration-200 hover:scale-110 opacity-0 group-hover:opacity-100
+        className={`absolute bg-green-500 w-fit ${
+          small ? "p-1" : "p-2"
+        } text-neutral-900 rounded-full transition-all duration-200 hover:scale-110 opacity-0 group-hover:opacity-100
           group-hover:top-1/2 top-3/4 transform -translate-y-1/2 right-4
-        "
+        `}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="w-5 h-5"
+          className={small ? "w-4 h-4" : "w-5 h-5"}
         >
           <path
             fillRule="evenodd"
@@ -37,6 +52,6 @@ export const HorizontalCard = ({
           />
         </svg>
       </div>
-    </div>
+    </Link>
   );
 };

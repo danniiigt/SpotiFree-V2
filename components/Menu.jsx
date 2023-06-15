@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
 
-export const LayoutMenu = () => {
+export const Menu = () => {
   const router = useRouter();
 
   const menu = [
@@ -108,68 +107,31 @@ export const LayoutMenu = () => {
   ];
 
   return (
-    <section className="flex-col w-1/3 gap-y-2 max-w-[280px] hidden md:flex">
-      <div className="bg-neutral-950 rounded h-fit p-4 space-y-2">
-        {menu.map((item, index) => (
-          <Link
-            key={index}
-            href={item.path}
-            className={`flex items-center group gap-6 hover:bg-neutral-800/25 cursor-pointer transition-all duration-100 p-3 rounded-lg ${
-              router.pathname === item.path && "bg-neutral-700/20"
-            }`}
+    <div className="bg-neutral-950 rounded h-fit p-2 space-y-2">
+      {menu.map((item, index) => (
+        <Link
+          key={index}
+          href={item.path}
+          className={`flex items-center group gap-6 hover:bg-neutral-800/25 cursor-pointer transition-all duration-100 p-3 rounded-lg ${
+            router.pathname === item.path && "bg-neutral-700/20"
+          }`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              {router.pathname === item.path ? item.solidIcon : item.icon}
-            </svg>
+            {router.pathname === item.path ? item.solidIcon : item.icon}
+          </svg>
 
-            <h1>{item.name}</h1>
-          </Link>
-        ))}
-      </div>
-      <div className="bg-neutral-950 rounded h-full p-4">
-        <div className="flex justify-between p-3">
-          <div className="flex items-center gap-6">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"
-              />
-            </svg>
-            <h1>Tu biblioteca</h1>
-          </div>
-          <div className="p-2 hover:bg-neutral-800/25 rounded-full cursor-pointer transition-all duration-200">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </section>
+          <h1 className={router.pathname === item.path ? "font-bold" : ""}>
+            {item.name}
+          </h1>
+        </Link>
+      ))}
+    </div>
   );
 };

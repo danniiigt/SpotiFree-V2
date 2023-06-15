@@ -1,15 +1,16 @@
 import Image from "next/image";
 import React from "react";
+import { useLoadImage } from "../hooks/useLoadImage";
+import { useOnPlay } from "../hooks/useOnPlay";
 
-export const SongCard = ({
-  image = "https://i.scdn.co/image/ab67616d0000b273e3a09a9ae3f1fa102c110e60",
-  title = "Sprinter",
-  authors = "Dave, Central Cee",
-}) => {
+export const SongCard = ({ song }) => {
+  const songImageUrl = useLoadImage(song.image_path);
+  const { onPlay } = useOnPlay(song);
+
   return (
-    <div className="bg-neutral-900/50 rounded-md shadow p-4 group hover:bg-neutral-800/60 transition-all duration-150 cursor-pointer relative">
+    <div className="bg-neutral-900/50 rounded-md shadow p-4 group hover:bg-neutral-800/60 transition-all duration-150 cursor-pointer relative min-h-[185px] h-full flex flex-col justify-between animate__animated animate__fadeIn">
       <Image
-        src={image}
+        src={songImageUrl}
         alt="song-image"
         height={100}
         width={150}
@@ -17,13 +18,14 @@ export const SongCard = ({
       />
 
       <div className="mt-4">
-        <h1 className="text-lg">{title}</h1>
+        <h1 className="text-lg truncate">{song.title}</h1>
         <h2 className="font-extralight text-sm mt-[-3px] text-gray-400 truncate">
-          {authors}
+          {song.author}
         </h2>
       </div>
 
-      <div
+      <button
+        onClick={() => onPlay(song.id)}
         className="absolute bg-green-500 w-fit p-2.5 shadow-lg shadow-neutral-950 text-neutral-900 rounded-full transition-all duration-200 hover:scale-110 opacity-0 group-hover:opacity-100
           group-hover:bottom-12 bottom-10 transform -translate-y-1/2 right-5
         "
@@ -40,7 +42,7 @@ export const SongCard = ({
             clipRule="evenodd"
           />
         </svg>
-      </div>
+      </button>
     </div>
   );
 };

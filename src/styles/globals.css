@@ -8,7 +8,7 @@
 
 body {
   background-color: rgb(var(--foreground-rgb));
-  color: #d1d5db;
+  color: #b6b8bd;
   padding: 10px;
   font-family: "Figtree Variable", sans-serif;
   overflow: hidden !important;

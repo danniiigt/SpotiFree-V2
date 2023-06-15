@@ -40,7 +40,7 @@ export const Modal = ({ isOpen, onChange, title, description, children }) => {
               text-xl 
               text-center 
               font-bold 
-              mb-4
+              mb-2
             "
           >
             {title}
