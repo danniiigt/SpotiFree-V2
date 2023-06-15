@@ -13,8 +13,10 @@ export const MainLayout = ({ children }) => {
       <main className="flex h-full gap-2">
         <AsideMenu />
         <section
-          className={`bg-gradient-to-b from-emerald-900/60 from-5% via-neutral-950 via-30% to-neutral-950 to-90% w-full flex-grow rounded overflow-y-auto custom-scrollbar transition-colors duration-500 ${
-            activeId ? "max-h-[calc(100vh-91px)]" : "max-h-screen"
+          className={`bg-gradient-to-b from-green-900/60 from-5% via-neutral-950 via-30% to-neutral-950 to-90% w-full flex-grow rounded overflow-y-auto custom-scrollbar transition-colors duration-500 ${
+            activeId
+              ? "max-h-[calc(100vh-126px)] lg:max-h-[calc(100vh-91px)]"
+              : "max-h-screen"
           }`}
         >
           <Header />

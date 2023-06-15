@@ -22,7 +22,7 @@ export const HeaderAuth = () => {
       <div className="flex gap-4">
         <button
           onClick={onOpen}
-          className="bg-emerald-700 hover:bg-emerald-800 rounded-3xl py-2 px-4 flex items-center gap-2 transition-all duration-200"
+          className="bg-green-700 hover:bg-green-800 rounded-3xl py-2 px-4 flex items-center gap-2 transition-all duration-200"
         >
           Acceder
           <svg
@@ -45,7 +45,7 @@ export const HeaderAuth = () => {
       <div className="flex gap-4">
         <button
           onClick={onSignOut}
-          className="bg-emerald-700 hover:bg-emerald-800 rounded-full py-2 px-4 flex items-center gap-2 transition-all duration-200"
+          className="bg-green-700 hover:bg-green-800 rounded-full py-2 px-4 flex items-center gap-2 transition-all duration-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ export const HeaderAuth = () => {
           Cerrar Sesión
         </button>
 
-        <button className="bg-emerald-700 hover:bg-emerald-800 rounded-full p-2 flex items-center gap-2 transition-all duration-200">
+        <button className="bg-green-700 hover:bg-green-800 rounded-full p-2 flex items-center gap-2 transition-all duration-200">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

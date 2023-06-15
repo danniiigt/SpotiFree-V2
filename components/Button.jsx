@@ -10,7 +10,7 @@ export const Button = forwardRef(
           `
         w-full 
         rounded-full 
-        bg-emerald-500
+        bg-green-500
         border
         border-transparent
         px-3 

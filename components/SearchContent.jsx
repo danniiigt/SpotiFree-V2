@@ -9,8 +9,6 @@ export const SearchContent = ({ songs }) => {
   const { title } = router.query;
   const { data: allSongs, isLoading } = useSWR("songs", getSongs);
 
-  console.log(songs);
-
   if (songs.length == 0 && title?.length > 0) {
     return (
       <div>

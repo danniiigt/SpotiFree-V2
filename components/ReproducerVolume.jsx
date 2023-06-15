@@ -5,7 +5,7 @@ export const ReproducerVolume = () => {
   const { volume, setVolume } = usePlayer();
 
   return (
-    <div className="flex gap-x-3 items-center">
+    <div className="flex gap-x-3 items-center w-fit justify-end lg:w-1/4">
       <div>
         {volume > 0 ? (
           <svg
@@ -42,7 +42,8 @@ export const ReproducerVolume = () => {
 
       <input
         type="range"
-        className="cursor-pointer accent-emerald-600"
+        className="cursor-pointer accent-green-600 w-20 md:w-auto
+        "
         min={0}
         max={1}
         step={0.01}

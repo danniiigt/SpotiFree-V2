@@ -5,20 +5,20 @@ export const ReproducerSong = ({ song }) => {
   const imageUrl = useLoadImage(song.image_path);
 
   return (
-    <div className="flex gap-x-4">
+    <div className="flex gap-x-4 items-center w-fit lg:w-1/4">
       <Image
         src={imageUrl}
         alt="song-image"
         height={55}
         width={55}
-        className="rounded"
+        className="rounded h-[45px] w-[45px] md:w-[55px] md:h-[55px]"
       />
-      <div className="flex flex-col justify-center">
-        <h1>{song.title}</h1>
-        <h1 className="text-sm text-neutral-500">{song.author}</h1>
+      <div className="hidden sm:flex flex-col justify-center">
+        <h1 className="text-sm md:text-[16px]">{song.title}</h1>
+        <h1 className="text-xs md:text-sm text-neutral-500">{song.author}</h1>
       </div>
       <div className="flex items-center">
-        <button className="text-neutral-500 hover:text-neutral-200">
+        <button className="hidden sm:block text-neutral-500 hover:text-neutral-200">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

@@ -6,9 +6,9 @@ export const SongSkeletonItem = () => {
       <div className="bg-neutral-800/60 rounded w-full h-[180px] mb-4 animate-pulse"></div>
 
       <div className="space-y-2">
-        <div className="bg-neutral-800/60 rounded w-28 h-3 animate-pulse"></div>
-        <div className="bg-neutral-800/60 rounded w-48 h-2 animate-pulse"></div>
-        <div className="bg-neutral-800/60 rounded w-24 h-1.5 animate-pulse"></div>
+        <div className="bg-neutral-800/60 rounded w-28 max-w-full h-3 animate-pulse"></div>
+        <div className="bg-neutral-800/60 rounded w-48 max-w-full h-2 animate-pulse"></div>
+        <div className="bg-neutral-800/60 rounded w-24 max-w-full h-1.5 animate-pulse"></div>
       </div>
     </div>
   );

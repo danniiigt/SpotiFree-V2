@@ -2,10 +2,6 @@ import Image from "next/image";
 import { useUser } from "../hooks/useUser";
 
 export const PlaylistBanner = ({ title, image }) => {
-  const { user } = useUser();
-
-  console.log();
-
   return (
     <div className="flex items-center gap-4">
       <Image

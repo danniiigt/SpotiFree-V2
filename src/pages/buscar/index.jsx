@@ -22,8 +22,6 @@ const BuscarPage = () => {
     }
   }, [title]);
 
-  console.log(songs);
-
   return (
     <>
       <h1 className="text-4xl font-bold">Buscar canción</h1>
