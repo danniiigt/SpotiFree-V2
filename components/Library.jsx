@@ -8,13 +8,14 @@ import { MediaItem } from "./MediaItem";
 
 export const Library = () => {
   const { user } = useUser();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [songs, setSongs] = useState([]);
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
 
   useEffect(() => {
     if (user) {
+      setLoading(true);
       getSongsByUserId(user.id)
         .then(setSongs)
         .finally(() => setLoading(false));

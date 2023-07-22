@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import useAuthModal from "../hooks/useAuthModal";
 import { HeaderAuth } from "./HeaderAuth";
 
 export const Header = () => {
   const router = useRouter();
-  const { onOpen } = useAuthModal();
 
   const menu = [
     {

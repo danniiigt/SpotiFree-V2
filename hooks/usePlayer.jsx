@@ -10,7 +10,15 @@ export const usePlayer = create((set) => ({
   songProgress: null,
   onPlay: () => set((state) => ({ isPlaying: true })),
   onPause: () => set((state) => ({ isPlaying: false })),
-  setVolume: (volume) => set((state) => ({ volume: volume })),
+  setVolume: (volume) => {
+    if (volume > 0.1) {
+      localStorage.setItem("volume", volume);
+      set((state) => ({ volume: volume }));
+    } else {
+      set((state) => ({ volume: volume }));
+    }
+  },
+
   setId: (id) => set((state) => ({ activeId: id })),
   setIds: (ids) => set((state) => ({ ids: ids })),
   reset: () => set((state) => ({ ids: [], activeId: null })),

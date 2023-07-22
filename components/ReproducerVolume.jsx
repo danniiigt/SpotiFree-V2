@@ -1,14 +1,27 @@
-import React from "react";
+import { useEffect } from "react";
 import { usePlayer } from "../hooks/usePlayer";
 
 export const ReproducerVolume = () => {
   const { volume, setVolume } = usePlayer();
+
+  const toggleVolume = () => {
+    if (volume > 0) {
+      setVolume(0);
+    } else {
+      setVolume(localStorage.getItem("volume") || 0.5);
+    }
+  };
+
+  useEffect(() => {
+    setVolume(localStorage.getItem("volume") || 0.5);
+  }, []);
 
   return (
     <div className="flex gap-x-3 items-center w-fit justify-end lg:w-1/4">
       <div>
         {volume > 0 ? (
           <svg
+            onClick={toggleVolume}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -24,6 +37,7 @@ export const ReproducerVolume = () => {
           </svg>
         ) : (
           <svg
+            onClick={toggleVolume}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

@@ -16,6 +16,7 @@ export const Reproducer = () => {
     setSongDuration,
     setCurrentSongTime,
     setSongProgress,
+    setVolume,
   } = usePlayer();
   const { song } = useGetSongById(activeId);
   const songUrl = useLoadSongUrl(song);
@@ -45,6 +46,10 @@ export const Reproducer = () => {
       <div className="hidden">
         <ReactPlayer
           ref={reactPlayerRef}
+          // HANDLE LOADING
+          onReady={() => {
+            console.log("READY");
+          }}
           onDuration={(duration) => setSongDuration(duration)}
           onProgress={(progress) => {
             if (isPlaying) {
@@ -55,7 +60,7 @@ export const Reproducer = () => {
           onEnded={onSongEnded}
           url={songUrl.publicUrl}
           playing={isPlaying}
-          volume={volume}
+          volume={Number(volume)}
           controls
           config={{
             youtube: {

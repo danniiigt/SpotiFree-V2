@@ -1,14 +1,15 @@
 import React from "react";
 import { useLoadImage } from "../hooks/useLoadImage";
 import Image from "next/image";
+import { useOnPlay } from "../hooks/useOnPlay";
 
 export const MediaItem = ({ song }) => {
   const imageUrl = useLoadImage(song.image_path);
-  const handleClick = () => {};
+  const { onPlay } = useOnPlay(song);
 
   return (
     <div
-      onClick={handleClick}
+      onClick={() => onPlay(song.id)}
       className="
         flex 
         items-center 
