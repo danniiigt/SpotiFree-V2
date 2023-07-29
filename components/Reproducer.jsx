@@ -65,7 +65,9 @@ export const Reproducer = () => {
           url={songUrl.publicUrl}
           playing={!loading && isPlaying}
           volume={Number(volume)}
-          controls
+          controls={true}
+          width="100%"
+          height="auto"
           config={{
             youtube: {
               playerVars: {
