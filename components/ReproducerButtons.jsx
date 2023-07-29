@@ -3,7 +3,7 @@ import { Icons } from "./Icons";
 import { ReproducerTimeLine } from "./ReproducerTimeLine";
 
 export const ReproducerButtons = ({ onChangeProgress }) => {
-  const { isPlaying, onPlay, onPause } = usePlayer();
+  const { isPlaying, onPlay, onPause, loading } = usePlayer();
 
   return (
     <div className="flex flex-col lg:w-1/2 gap-2">
@@ -11,7 +11,28 @@ export const ReproducerButtons = ({ onChangeProgress }) => {
         <button className="text-neutral-500 hover:text-neutral-200">
           <Icons.skipBack className="w-6 h-6" />
         </button>
-        {isPlaying ? (
+
+        {loading ? (
+          <button
+            className="bg-green-500 w-fit p-1.5 shadow-lg shadow-neutral-950 text-neutral-900 rounded-full transition-all duration-200 hover:scale-110 active:scale-100"
+            onClick={onPause}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="animate-spin"
+            >
+              <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+            </svg>
+          </button>
+        ) : isPlaying ? (
           <button
             className="bg-green-500 w-fit p-1.5 shadow-lg shadow-neutral-950 text-neutral-900 rounded-full transition-all duration-200 hover:scale-110 active:scale-100"
             onClick={onPause}
@@ -32,7 +53,9 @@ export const ReproducerButtons = ({ onChangeProgress }) => {
         ) : (
           <button
             className="bg-green-500 w-fit p-1.5 shadow-lg shadow-neutral-950 text-neutral-900 rounded-full transition-all duration-200 hover:scale-110 active:scale-100"
-            onClick={onPlay}
+            onClick={() => {
+              onPlay();
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,6 +71,7 @@ export const ReproducerButtons = ({ onChangeProgress }) => {
             </svg>
           </button>
         )}
+
         <button className="text-neutral-500 hover:text-neutral-200">
           <Icons.skipForward className="w-6 h-6" />
         </button>

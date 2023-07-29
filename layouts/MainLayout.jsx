@@ -10,7 +10,7 @@ export const MainLayout = ({ children }) => {
     <div
       className={`flex flex-col gap-2 h-[calc(100vh-20px)] w-[calc(100vw-20px)]`}
     >
-      <main className="flex h-full gap-2">
+      <main className="flex h-[calc(100%-104px)] gap-2">
         <AsideMenu />
         <section
           className={`bg-gradient-to-b from-green-900/60 from-5% via-neutral-950 via-30% to-neutral-950 to-90% w-full flex-grow rounded overflow-y-auto custom-scrollbar transition-colors duration-500 ${

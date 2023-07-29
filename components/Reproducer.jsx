@@ -16,7 +16,8 @@ export const Reproducer = () => {
     setSongDuration,
     setCurrentSongTime,
     setSongProgress,
-    setVolume,
+    setLoading,
+    loading,
   } = usePlayer();
   const { song } = useGetSongById(activeId);
   const songUrl = useLoadSongUrl(song);
@@ -46,20 +47,19 @@ export const Reproducer = () => {
       <div className="hidden">
         <ReactPlayer
           ref={reactPlayerRef}
-          // HANDLE LOADING
           onReady={() => {
-            console.log("READY");
+            setLoading(false);
           }}
           onDuration={(duration) => setSongDuration(duration)}
           onProgress={(progress) => {
-            if (isPlaying) {
+            if (isPlaying && !loading) {
               setCurrentSongTime(Math.floor(progress.playedSeconds + 1));
               setSongProgress(progress.played);
             }
           }}
           onEnded={onSongEnded}
           url={songUrl.publicUrl}
-          playing={isPlaying}
+          playing={!loading && isPlaying}
           volume={Number(volume)}
           controls
           config={{

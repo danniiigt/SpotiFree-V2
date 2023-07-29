@@ -11,10 +11,14 @@ export const ReproducerSong = ({ song }) => {
         alt="song-image"
         height={55}
         width={55}
+        priority
+        quality={60}
         className="rounded h-[45px] w-[45px] md:w-[55px] md:h-[55px]"
       />
       <div className="hidden sm:flex flex-col justify-center">
-        <h1 className="text-sm md:text-[16px]">{song.title}</h1>
+        <h1 className="text-sm md:text-[16px] sm:max-w-[100px] max-w-[180px] truncate">
+          {song.title}
+        </h1>
         <h1 className="text-xs md:text-sm text-neutral-500">{song.author}</h1>
       </div>
       <div className="flex items-center">

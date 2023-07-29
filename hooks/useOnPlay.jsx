@@ -1,3 +1,4 @@
+import { useState } from "react";
 import useAuthModal from "./useAuthModal";
 import { usePlayer } from "./usePlayer";
 import { useUser } from "./useUser";
@@ -9,6 +10,8 @@ export const useOnPlay = (song) => {
     setSongProgress,
     setCurrentSongTime,
     activeId,
+    loading,
+    setLoading,
   } = usePlayer();
   const authModal = useAuthModal();
   const { user } = useUser();
@@ -23,10 +26,11 @@ export const useOnPlay = (song) => {
       return;
     }
 
+    setCurrentSongTime(0);
+    setSongProgress(0);
+    setLoading(true);
     setId(id);
     setPlay(true);
-    setSongProgress(0);
-    setCurrentSongTime(0);
   };
 
   return { onPlay };

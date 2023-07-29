@@ -1,24 +1,19 @@
 import { useEffect, useState } from "react";
 import { getSongsByUserId } from "../helpers/getSongsByUserId";
+import { useUser } from "../hooks/useUser";
+import { MediaItem } from "./MediaItem";
 import useAuthModal from "../hooks/useAuthModal";
 import useUploadModal from "../hooks/useUploadModal";
-import { useUser } from "../hooks/useUser";
-import { LibrarySkeleton } from "./LibrarySkeleton";
-import { MediaItem } from "./MediaItem";
 
 export const Library = () => {
   const { user } = useUser();
-  const [loading, setLoading] = useState(false);
   const [songs, setSongs] = useState([]);
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
 
   useEffect(() => {
     if (user) {
-      setLoading(true);
-      getSongsByUserId(user.id)
-        .then(setSongs)
-        .finally(() => setLoading(false));
+      getSongsByUserId(user.id).then(setSongs);
     }
   }, [user]);
 
@@ -72,15 +67,9 @@ export const Library = () => {
       </div>
       <div>
         <div className="p-2 space-y-2">
-          {loading && <LibrarySkeleton />}
-
-          {!loading && (
-            <>
-              {songs.map((song) => (
-                <MediaItem key={song.id} song={song} />
-              ))}
-            </>
-          )}
+          {songs?.map((song) => (
+            <MediaItem key={song.id} song={song} />
+          ))}
         </div>
       </div>
     </div>

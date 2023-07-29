@@ -8,6 +8,8 @@ export const PlaylistBanner = ({ title, image }) => {
         src={image}
         width={150}
         height={150}
+        priority
+        quality={70}
         className="rounded"
         alt="banner-image"
       />

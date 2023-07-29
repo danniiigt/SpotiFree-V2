@@ -2,10 +2,12 @@ import Image from "next/image";
 import React from "react";
 import { useLoadImage } from "../hooks/useLoadImage";
 import { useOnPlay } from "../hooks/useOnPlay";
+import { usePlayer } from "../hooks/usePlayer";
 
 export const SongCard = ({ song }) => {
   const songImageUrl = useLoadImage(song.image_path);
   const { onPlay } = useOnPlay(song);
+  const { loading } = usePlayer();
 
   return (
     <div className="bg-neutral-900/50 rounded-md shadow p-4 group hover:bg-neutral-800/60 transition-all duration-150 cursor-pointer relative min-h-[185px] h-full flex flex-col justify-between animate__animated animate__fadeIn">
@@ -14,6 +16,8 @@ export const SongCard = ({ song }) => {
         alt="song-image"
         height={100}
         width={150}
+        priority
+        quality={60}
         className="rounded w-full object-cover h-full max-h-[180px]"
       />
 
@@ -30,18 +34,35 @@ export const SongCard = ({ song }) => {
           group-hover:bottom-12 bottom-10 transform -translate-y-1/2 right-5
         "
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="w-6 h-6"
-        >
-          <path
-            fillRule="evenodd"
-            d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
-            clipRule="evenodd"
-          />
-        </svg>
+        {loading ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="animate-spin"
+          >
+            <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              fillRule="evenodd"
+              d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+              clipRule="evenodd"
+            />
+          </svg>
+        )}
       </button>
     </div>
   );

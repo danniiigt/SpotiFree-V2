@@ -8,6 +8,7 @@ export const usePlayer = create((set) => ({
   songDuration: null,
   currentSongTime: null,
   songProgress: null,
+  loading: false,
   onPlay: () => set((state) => ({ isPlaying: true })),
   onPause: () => set((state) => ({ isPlaying: false })),
   setVolume: (volume) => {
@@ -26,4 +27,5 @@ export const usePlayer = create((set) => ({
   setCurrentSongTime: (time) => set((state) => ({ currentSongTime: time })),
   setSongProgress: (progress) => set((state) => ({ songProgress: progress })),
   togglePlay: () => set((state) => ({ isPlaying: !state.isPlaying })),
+  setLoading: (loading) => set((state) => ({ loading: loading })),
 }));

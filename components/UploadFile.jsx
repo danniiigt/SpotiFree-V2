@@ -5,16 +5,15 @@ import { Button } from "./Button";
 import { toast } from "react-hot-toast";
 import { useUser } from "../hooks/useUser";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { mutate } from "swr";
 import useUploadModal from "../hooks/useUploadModal";
 import uniqid from "uniqid";
-import { useRouter } from "next/router";
 
 export const UploadFile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useUser();
   const { isOpen, onClose } = useUploadModal();
   const supabaseClient = useSupabaseClient();
-  const router = useRouter();
 
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -84,7 +83,7 @@ export const UploadFile = () => {
       toast.success("Canción subida correctamente");
       reset();
       onClose();
-      router.reload();
+      mutate("songs");
     } catch (error) {
       toast.error("Error al subir la canción");
     } finally {

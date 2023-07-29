@@ -7,7 +7,12 @@ import { getSongs } from "../helpers/getSongs";
 export const SearchContent = ({ songs }) => {
   const router = useRouter();
   const { title } = router.query;
-  const { data: allSongs, isLoading } = useSWR("songs", getSongs);
+  const { data: allSongs, isLoading } = useSWR("songs", getSongs, {
+    revalidateOnFocus: false,
+    revalidateIfStale: false,
+    // revalidateOnMount: false,
+    revalidateOnReconnect: false,
+  });
 
   if (songs.length == 0 && title?.length > 0) {
     return (
