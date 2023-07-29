@@ -1,4 +1,4 @@
-import ReactPlayer from "react-player/youtube";
+import ReactPlayer from "react-player";
 import { useGetSongById } from "../hooks/useGetSongById";
 import { useLoadSongUrl } from "../hooks/useLoadSongUrl";
 import { usePlayer } from "../hooks/usePlayer";
@@ -50,7 +50,7 @@ export const Reproducer = () => {
 
       <div className="hidden">
         <ReactPlayer
-          playsinline={true}
+          playsinline
           ref={reactPlayerRef}
           onReady={() => {
             setLoading(false);
