@@ -33,6 +33,9 @@ export const Modal = ({ isOpen, onChange, title, description, children }) => {
             bg-neutral-800 
             p-[25px] 
             focus:outline-none
+            flex
+            flex-col
+            justify-center
           "
         >
           <Dialog.Title

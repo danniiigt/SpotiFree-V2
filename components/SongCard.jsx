@@ -30,7 +30,8 @@ export const SongCard = ({ song }) => {
 
       <button
         onClick={() => onPlay(song.id)}
-        className="absolute bg-green-500 w-fit p-2.5 shadow-lg shadow-neutral-950 text-neutral-900 rounded-full transition-all duration-200 hover:scale-110 opacity-0 group-hover:opacity-100
+        disabled={loading}
+        className="absolute bg-green-500 disabled:bg-green-500/50 w-fit p-2.5 shadow-lg shadow-neutral-950 text-neutral-900 rounded-full transition-all duration-200 hover:scale-110 opacity-0 group-hover:opacity-100
           group-hover:bottom-12 bottom-10 transform -translate-y-1/2 right-5
         "
       >

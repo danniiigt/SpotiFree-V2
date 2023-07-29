@@ -9,7 +9,6 @@
 body {
   background-color: rgb(var(--foreground-rgb));
   color: #b6b8bd;
-  padding: 10px;
   font-family: "Figtree Variable", sans-serif;
   overflow: hidden !important;
 }

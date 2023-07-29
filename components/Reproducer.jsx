@@ -6,6 +6,7 @@ import { ReproducerButtons } from "./ReproducerButtons";
 import { ReproducerSong } from "./ReproducerSong";
 import { ReproducerVolume } from "./ReproducerVolume";
 import { useRef } from "react";
+import { SongProgress } from "./SongProgress";
 
 export const Reproducer = () => {
   const {
@@ -35,14 +36,17 @@ export const Reproducer = () => {
   };
 
   if (!song && !songUrl) {
-    return null;
+    return (
+      <footer className="bg-neutral-950 h-24 rounded p-6 flex justify-between items-center"></footer>
+    );
   }
 
   return (
-    <footer className="bg-neutral-950 h-24 rounded p-6 flex justify-between items-center">
+    <footer className="bg-neutral-950 h-24 rounded p-4 sm:p-6 grid grid-cols-5 sm:grid-cols-3 content-center relative">
       <ReproducerSong song={song} />
       <ReproducerButtons onChangeProgress={onChangeProgress} />
       <ReproducerVolume />
+      <SongProgress onChangeProgress={onChangeProgress} />
 
       <div className="hidden">
         <ReactPlayer

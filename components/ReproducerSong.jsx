@@ -5,7 +5,7 @@ export const ReproducerSong = ({ song }) => {
   const imageUrl = useLoadImage(song.image_path);
 
   return (
-    <div className="flex gap-x-4 items-center w-fit lg:w-1/4">
+    <div className="flex gap-x-4 items-center w-fit col-span-3 sm:col-span-1">
       <Image
         src={imageUrl}
         alt="song-image"
@@ -13,10 +13,10 @@ export const ReproducerSong = ({ song }) => {
         width={55}
         priority
         quality={60}
-        className="rounded h-[45px] w-[45px] md:w-[55px] md:h-[55px]"
+        className="rounded h-[55px] w-[55px]"
       />
-      <div className="hidden sm:flex flex-col justify-center">
-        <h1 className="text-sm md:text-[16px] sm:max-w-[100px] max-w-[180px] truncate">
+      <div className="sm:flex flex-col justify-center">
+        <h1 className="md:text-[16px] sm:max-w-[100px] max-w-[180px] truncate">
           {song.title}
         </h1>
         <h1 className="text-xs md:text-sm text-neutral-500">{song.author}</h1>
