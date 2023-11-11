@@ -7,6 +7,7 @@ import ToasterProvider from "../../providers/ToasterProvider";
 import { SWRConfig } from "swr/_internal";
 import { MainLayout } from "../../layouts/MainLayout";
 import "animate.css";
+import { KeyListener } from "../../components/KeyListener";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -20,6 +21,8 @@ export default function App({ Component, pageProps }) {
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider />
+            <KeyListener />
+
             <MainLayout>
               <Component {...pageProps} />
             </MainLayout>
