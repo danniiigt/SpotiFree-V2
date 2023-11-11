@@ -14,6 +14,7 @@ export const Reproducer = () => {
     isPlaying,
     volume,
     onPause,
+    onPlay,
     setSongDuration,
     setCurrentSongTime,
     setSongProgress,
@@ -61,6 +62,9 @@ export const Reproducer = () => {
               setCurrentSongTime(Math.floor(progress.playedSeconds + 1));
               setSongProgress(progress.played);
             }
+          }}
+          onPlay={() => {
+            onPlay();
           }}
           onEnded={onSongEnded}
           url={songUrl.publicUrl}

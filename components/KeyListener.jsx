@@ -16,8 +16,6 @@ export const KeyListener = () => {
     if (event.key === " " || event.key === "MediaPlayPause") {
       onSpacePress(event);
     }
-
-    console.log(event.key);
   };
 
   useEffect(() => {
