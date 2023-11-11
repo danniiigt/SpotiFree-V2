@@ -26,7 +26,7 @@ const BuscarPage = () => {
   return (
     <>
       <Head>
-        <title>Buscar - Spotifree</title>
+        <title>Spotifree</title>
       </Head>
       <h1 className="text-4xl font-bold">Buscar canción</h1>
       <div className="mt-6 space-y-4">

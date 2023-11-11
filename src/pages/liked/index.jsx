@@ -5,7 +5,7 @@ const LikedSongs = () => {
   return (
     <>
       <Head>
-        <title>Canciones que te gustan - Spotifree</title>
+        <title>Spotifree</title>
       </Head>
       <div>
         <PlaylistBanner

@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Inicio - Spotifree</title>
+        <title>Spotifree</title>
       </Head>
       <h1 className="text-4xl font-bold">Bienvenido de nuevo</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
