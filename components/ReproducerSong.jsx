@@ -16,7 +16,7 @@ export const ReproducerSong = ({ song }) => {
         className="rounded h-[55px] w-[55px]"
       />
       <div className="sm:flex flex-col justify-center">
-        <h1 className="md:text-[16px] sm:max-w-[100px] max-w-[180px] truncate">
+        <h1 className="md:text-[16px] max-w-[180px] sm:max-w-[100px] lg:max-w-[300px] truncate">
           {song.title}
         </h1>
         <h1 className="text-xs md:text-sm text-neutral-500">{song.author}</h1>

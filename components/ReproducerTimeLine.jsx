@@ -3,8 +3,10 @@ import { usePlayer } from "../hooks/usePlayer";
 export const ReproducerTimeLine = ({ onChangeProgress }) => {
   const { songDuration, currentSongTime } = usePlayer();
   const minutes = Math.floor(songDuration / 60);
-  const seconds = Math.floor(songDuration % 60);
-  const minutesPlayed = Math.floor(currentSongTime / 60);
+  const seconds = Math.floor(songDuration % 60)
+    .toString()
+    .padStart(2, "0");
+  const minutesPlayed = Math.floor(currentSongTime / 60).toString();
   const secondsPlayed = Math.floor(currentSongTime % 60);
 
   return (
