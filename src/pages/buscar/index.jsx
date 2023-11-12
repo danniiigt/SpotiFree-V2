@@ -8,8 +8,8 @@ import Head from "next/head";
 const BuscarPage = () => {
   const [songs, setSongs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
-  const { title } = router.query;
+  const { query } = useRouter();
+  const { title } = query;
 
   const fetchSongs = async () => {
     setIsLoading(true);

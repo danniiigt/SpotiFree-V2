@@ -1,16 +1,18 @@
-import React from "react";
 import { useLoadImage } from "../hooks/useLoadImage";
-import Image from "next/image";
 import { useOnPlay } from "../hooks/useOnPlay";
+import { usePlayer } from "../hooks/usePlayer";
+import Image from "next/image";
 
 export const MediaItem = ({ song }) => {
   const imageUrl = useLoadImage(song.image_path);
   const { onPlay } = useOnPlay(song);
+  const { activeId } = usePlayer();
+  const isPlaying = activeId === song.id;
 
   return (
     <div
       onClick={() => onPlay(song.id)}
-      className="
+      className={`
         flex 
         items-center 
         gap-x-3 
@@ -21,7 +23,8 @@ export const MediaItem = ({ song }) => {
         w-full 
         p-2 
         rounded-md
-      "
+        ${isPlaying ? "bg-neutral-800/50" : ""}
+      `}
     >
       <div
         className="
@@ -39,7 +42,7 @@ export const MediaItem = ({ song }) => {
           className="object-cover"
         />
       </div>
-      <div className="flex flex-col gap-y-1 overflow-hidden">
+      <div className="flex flex-col overflow-hidden">
         <p className="text-white truncate">{song.title}</p>
         <p className="text-neutral-400 text-sm truncate">{song.author}</p>
       </div>

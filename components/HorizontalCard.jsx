@@ -4,7 +4,8 @@ import { useLoadImage } from "../hooks/useLoadImage";
 import Link from "next/link";
 
 export const HorizontalCard = ({
-  image = "/images/liked.png",
+  image,
+  customImage,
   text = "Canciones que te gustan",
   small,
   url = "/",
@@ -18,13 +19,18 @@ export const HorizontalCard = ({
         small ? "bg-neutral-600/10" : "bg-neutral-100/10"
       } flex rounded items-center gap-2 hover:bg-neutral-400/10 cursor-pointer transition-all duration-200 group relative animate__animated animate__fadeIn`}
     >
-      <Image
-        src={imageUrl}
-        alt="like"
-        width={small ? 40 : 70}
-        height={small ? 40 : 70}
-        className="rounded h-full object-cover"
-      />
+      {image && (
+        <Image
+          src={imageUrl}
+          alt="like"
+          width={small ? 40 : 70}
+          height={small ? 40 : 70}
+          priority
+          quality={100}
+          className="rounded h-full object-cover"
+        />
+      )}
+      {customImage && customImage}
 
       <div className="p-2">
         <h1 className={small ? "text-sm truncate text-zinc-400" : "font-bold"}>
