@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }) {
     <>
       <SWRConfig
         value={{
+          revalidateOnFocus: false,
           fetcher: (resource, init) =>
             fetch(resource, init).then((res) => res.json()),
         }}
