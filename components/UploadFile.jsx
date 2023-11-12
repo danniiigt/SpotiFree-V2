@@ -87,6 +87,7 @@ export const UploadFile = () => {
     } catch (error) {
       toast.error("Error al subir la canción");
     } finally {
+      mutate("songsByUser");
       setIsLoading(false);
     }
   };

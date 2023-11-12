@@ -1,21 +1,19 @@
-import { useEffect, useState } from "react";
 import { getSongsByUserId } from "../helpers/getSongsByUserId";
 import { useUser } from "../hooks/useUser";
 import { MediaItem } from "./MediaItem";
 import useAuthModal from "../hooks/useAuthModal";
 import useUploadModal from "../hooks/useUploadModal";
+import useSWR from "swr";
 
 export const Library = () => {
   const { user } = useUser();
-  const [songs, setSongs] = useState([]);
+  const { data: songs } = useSWR(
+    user ? ["songsByUser", user?.id] : null,
+    getSongsByUserId
+  );
+
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
-
-  useEffect(() => {
-    if (user) {
-      getSongsByUserId(user.id).then(setSongs);
-    }
-  }, [user]);
 
   const handleAddSong = () => {
     if (!user) {

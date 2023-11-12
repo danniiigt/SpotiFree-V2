@@ -19,7 +19,7 @@ export const MainLayout = ({ children }) => {
               : "max-h-screen"
           }`}
         >
-          <Header />
+          {/* <Header /> */}
           <div className="p-4 lg:p-6 pt-0">{children}</div>
         </section>
       </main>

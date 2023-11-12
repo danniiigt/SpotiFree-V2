@@ -13,7 +13,7 @@ export const KeyListener = () => {
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === " " || event.key === "MediaPlayPause") {
+    if (event.key === "MediaPlayPause") {
       onSpacePress(event);
     }
   };

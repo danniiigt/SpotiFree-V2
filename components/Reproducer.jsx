@@ -21,7 +21,7 @@ export const Reproducer = () => {
     setLoading,
     loading,
   } = usePlayer();
-  const { song } = useGetSongById(activeId);
+  const { song, songFavUsers } = useGetSongById(activeId);
   const songUrl = useLoadSongUrl(song);
   const reactPlayerRef = useRef();
 
@@ -44,7 +44,7 @@ export const Reproducer = () => {
 
   return (
     <footer className="bg-neutral-950 h-24 rounded p-4 sm:p-6 grid grid-cols-5 sm:grid-cols-3 content-center relative">
-      <ReproducerSong song={song} />
+      <ReproducerSong song={song} songFavUsers={songFavUsers} />
       <ReproducerButtons onChangeProgress={onChangeProgress} />
       <ReproducerVolume />
       <SongProgress onChangeProgress={onChangeProgress} />

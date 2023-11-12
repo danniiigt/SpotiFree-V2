@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 export const useGetSongById = (id) => {
   const [isLoading, setIsLoading] = useState(false);
   const [song, setSong] = useState(null);
+  const [songFavUsers, setSongFavUsers] = useState(null);
   const { supabaseClient } = useSessionContext();
 
   useEffect(() => {
@@ -30,7 +31,23 @@ export const useGetSongById = (id) => {
       setSong(data);
     };
 
+    const fetchSongFavUsers = async () => {
+      const { data, error } = await supabaseClient
+        .from("liked_songs")
+        .select("user_id")
+        .eq("song_id", id);
+
+      if (error) {
+        console.log(error);
+        toast.error("Error al obtener los usuarios que le han dado like");
+        return;
+      }
+
+      setSongFavUsers(data);
+    };
+
     fetchSong();
+    fetchSongFavUsers();
     setIsLoading(false);
   }, [id, supabaseClient]);
 
@@ -38,7 +55,8 @@ export const useGetSongById = (id) => {
     () => ({
       isLoading,
       song,
+      songFavUsers,
     }),
-    [isLoading, song]
+    [isLoading, song, songFavUsers]
   );
 };

@@ -4,17 +4,16 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import { getSongs } from "../helpers/getSongs";
 
-export const SearchContent = ({ songs }) => {
+export const SearchContent = ({ songs, isLoadingSearch }) => {
   const router = useRouter();
   const { title } = router.query;
   const { data: allSongs, isLoading } = useSWR("songs", getSongs, {
     revalidateOnFocus: false,
     revalidateIfStale: false,
-    // revalidateOnMount: false,
     revalidateOnReconnect: false,
   });
 
-  if (songs.length == 0 && title?.length > 0) {
+  if (songs.length == 0 && title?.length > 0 && !isLoadingSearch) {
     return (
       <div>
         <h1>No se han encontrado canciones</h1>
