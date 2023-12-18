@@ -10,14 +10,16 @@ const Home = () => {
       <Head>
         <title>Spotifree</title>
       </Head>
-      <div className="flex items-center justify-between py-4">
-        <h1 className="text-4xl font-bold">Bienvenido de nuevo</h1>
+      <div className="flex items-center justify-between pt-4 lg:py-4">
+        <h1 className="text-3xl md:text-4xl font-bold">
+          ¡Bienvenido de nuevo! 👋
+        </h1>
         <HeaderAuth />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         <HorizontalCard image="/images/liked.png" url="/liked" />
         <HorizontalCard
-          customImage={<RandomImage />}
+          customImage={<RandomImage className="h-16 w-16" />}
           text="Canciónes aleatorias"
           url="/random"
         />
@@ -28,7 +30,7 @@ const Home = () => {
       </div>
 
       <h1 className="text-2xl font-bold mt-8">Novedades</h1>
-      <h1 className="font-light text-sm">Las temazos más recientes</h1>
+      <h1 className="font-light text-sm">Los temazos más recientes 🔥</h1>
 
       <Songs />
     </>

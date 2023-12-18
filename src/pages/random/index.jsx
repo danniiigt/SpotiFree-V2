@@ -11,7 +11,7 @@ const RandomSongsPage = () => {
       </Head>
       <PlaylistBanner
         title="Canciones aleatorias"
-        customImage={<RandomImage iconSize="h-12 w-12" />}
+        customImage={<RandomImage className="h-36 w-36" iconSize="h-12 w-12" />}
       />
       <div className="mt-8">
         <RandomSongs />

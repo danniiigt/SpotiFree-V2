@@ -1,6 +1,13 @@
-export const RandomImage = ({ iconSize = "small" }) => {
+import { cn } from "../lib/utils";
+
+export const RandomImage = ({ iconSize = "small", className }) => {
   return (
-    <div className="h-full rounded aspect-square bg-gradient-to-b from-[#FE5135] to-[#e2360a] flex items-center justify-center text-gray-200">
+    <div
+      className={cn(
+        "h-16 w-16 rounded aspect-square bg-gradient-to-b from-[#FE5135] to-[#e2360a] flex items-center justify-center text-gray-200",
+        className
+      )}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

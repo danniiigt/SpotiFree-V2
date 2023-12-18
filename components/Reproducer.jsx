@@ -58,6 +58,7 @@ export const Reproducer = () => {
           }}
           onDuration={(duration) => setSongDuration(duration)}
           onProgress={(progress) => {
+            setLoading(false);
             if (isPlaying && !loading) {
               setCurrentSongTime(Math.floor(progress.playedSeconds + 1));
               setSongProgress(progress.played);

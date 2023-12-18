@@ -26,11 +26,12 @@ export const useOnPlay = (song) => {
       return;
     }
 
+    setLoading(true);
     setCurrentSongTime(0);
     setSongProgress(0);
-    setLoading(true);
     setId(id);
     setPlay(true);
+    setLoading(false);
   };
 
   return { onPlay };

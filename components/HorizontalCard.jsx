@@ -23,8 +23,8 @@ export const HorizontalCard = ({
         <Image
           src={imageUrl}
           alt="like"
-          width={small ? 40 : 70}
-          height={small ? 40 : 70}
+          width={small ? 40 : 64}
+          height={small ? 40 : 64}
           priority
           quality={100}
           className="rounded h-full object-cover"

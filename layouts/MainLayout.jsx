@@ -20,7 +20,7 @@ export const MainLayout = ({ children }) => {
           }`}
         >
           {/* <Header /> */}
-          <div className="p-4 lg:p-6 pt-0">{children}</div>
+          <div className="p-4 lg:p-6">{children}</div>
         </section>
       </main>
       <Reproducer />
