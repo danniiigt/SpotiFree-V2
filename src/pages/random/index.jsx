@@ -7,7 +7,7 @@ const RandomSongsPage = () => {
   return (
     <>
       <Head>
-        <title>Spotifree</title>
+        <title>Canciones Aleatorias - Spotifree</title>
       </Head>
       <PlaylistBanner
         title="Canciones aleatorias"

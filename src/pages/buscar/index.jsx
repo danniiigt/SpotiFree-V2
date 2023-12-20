@@ -31,7 +31,10 @@ const BuscarPage = () => {
       <Head>
         <title>Spotifree</title>
       </Head>
-      <h1 className="text-4xl font-bold">Buscar canción</h1>
+      <div className="pt-4 text-gray-200">
+        <h1 className="hidden md:block text-4xl font-bold">Buscar canción</h1>
+        <h1 className="md:hidden text-3xl font-bold">Buscar canción</h1>
+      </div>
       <div className="mt-6 space-y-4">
         <SearchInput />
         <SearchContent songs={songs} isLoadingSearch={isLoading} />

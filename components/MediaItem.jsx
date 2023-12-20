@@ -40,6 +40,7 @@ export const MediaItem = ({ song }) => {
           src={imageUrl || "/images/music-placeholder.png"}
           alt="MediaItem"
           className="object-cover"
+          quality={65}
         />
       </div>
       <div className="flex flex-col overflow-hidden">

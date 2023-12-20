@@ -29,13 +29,15 @@ export const Modal = ({ isOpen, onChange, title, description, children }) => {
             md:max-w-[450px] 
             translate-x-[-50%] 
             translate-y-[-50%] 
-            rounded-md 
+            md:rounded-md 
+            
             bg-neutral-800 
             p-[25px] 
             focus:outline-none
             flex
             flex-col
             justify-center
+            z-[999]
           "
         >
           <Dialog.Title

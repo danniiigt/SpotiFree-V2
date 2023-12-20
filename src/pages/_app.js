@@ -8,6 +8,7 @@ import { SWRConfig } from "swr/_internal";
 import { MainLayout } from "../../layouts/MainLayout";
 import "animate.css";
 import { KeyListener } from "../../components/KeyListener";
+import { MobileMenu } from "../../components/MobileMenu";
 
 export default function App({ Component, pageProps }) {
   return (

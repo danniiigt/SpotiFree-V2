@@ -38,12 +38,12 @@ export const Reproducer = () => {
 
   if (!song && !songUrl) {
     return (
-      <footer className="bg-neutral-950 h-24 rounded p-6 flex justify-between items-center"></footer>
+      <footer className="bg-neutral-950 h-24 rounded p-6 hidden sm:flex justify-between items-center"></footer>
     );
   }
 
   return (
-    <footer className="bg-neutral-950 h-24 rounded p-4 sm:p-6 grid grid-cols-5 sm:grid-cols-3 content-center relative">
+    <footer className="bg-neutral-950 h-24 rounded p-4 sm:p-6 grid-cols-5 sm:grid-cols-3 content-center relative hidden sm:grid">
       <ReproducerSong song={song} songFavUsers={songFavUsers} />
       <ReproducerButtons onChangeProgress={onChangeProgress} />
       <ReproducerVolume />

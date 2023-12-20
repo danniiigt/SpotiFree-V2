@@ -17,10 +17,11 @@ export const useOnPlay = (song) => {
   const { user } = useUser();
 
   const onPlay = (id) => {
-    if (!user) {
-      authModal.onOpen();
-      return;
-    }
+    // TODO: Descomentar esto
+    // if (!user) {
+    //   authModal.onOpen();
+    //   return;
+    // }
 
     if (id === activeId) {
       return;
@@ -31,7 +32,6 @@ export const useOnPlay = (song) => {
     setSongProgress(0);
     setId(id);
     setPlay(true);
-    setLoading(false);
   };
 
   return { onPlay };
