@@ -1,4 +1,3 @@
-import { Header } from "../components/Header";
 import { AsideMenu } from "../components/AsideMenu";
 import { Reproducer } from "../components/Reproducer";
 import { usePlayer } from "../hooks/usePlayer";
@@ -11,7 +10,7 @@ export const MainLayout = ({ children }) => {
   return (
     <div className="min-w-full min-h-screen relative">
       <div
-        className={`flex flex-col gap-2 h-screen sm:h-[calc(100vh-20px)] w-screen sm:w-[calc(100vw-20px)] `}
+        className={`flex flex-col gap-2 h-[calc(100vh-80px)] sm:h-[calc(100vh-20px)] w-screen sm:w-[calc(100vw-20px)] `}
       >
         <main className="flex h-full sm:h-[calc(100%-104px)] gap-2">
           <AsideMenu />

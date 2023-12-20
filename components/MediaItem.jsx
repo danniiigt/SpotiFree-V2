@@ -1,7 +1,6 @@
 import { useLoadImage } from "../hooks/useLoadImage";
 import { useOnPlay } from "../hooks/useOnPlay";
 import { usePlayer } from "../hooks/usePlayer";
-import Image from "next/image";
 
 export const MediaItem = ({ song }) => {
   const imageUrl = useLoadImage(song.image_path);
@@ -35,11 +34,12 @@ export const MediaItem = ({ song }) => {
           overflow-hidden
         "
       >
-        <Image
+        <img
           fill
           src={imageUrl || "/images/music-placeholder.png"}
           alt="MediaItem"
-          className="object-cover"
+          loading="lazy"
+          className="object-fill max-h-[48px] aspect-square"
           quality={65}
         />
       </div>
