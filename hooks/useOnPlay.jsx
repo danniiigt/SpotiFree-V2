@@ -1,7 +1,6 @@
-import { useState } from "react";
-import useAuthModal from "./useAuthModal";
 import { usePlayer } from "./usePlayer";
 import { useUser } from "./useUser";
+import useAuthModal from "./useAuthModal";
 
 export const useOnPlay = (song) => {
   const {
@@ -17,11 +16,10 @@ export const useOnPlay = (song) => {
   const { user } = useUser();
 
   const onPlay = (id) => {
-    // TODO: Descomentar esto
-    // if (!user) {
-    //   authModal.onOpen();
-    //   return;
-    // }
+    if (!user) {
+      authModal.onOpen();
+      return;
+    }
 
     if (id === activeId) {
       return;
