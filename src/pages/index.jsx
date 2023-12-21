@@ -3,7 +3,6 @@ import { HorizontalCard } from "../../components/HorizontalCard";
 import { Songs } from "../../components/Songs";
 import { HeaderAuth } from "../../components/HeaderAuth";
 import { RandomImage } from "../../components/RandomImage";
-import { MobileMenu } from "../../components/MobileMenu";
 
 const Home = () => {
   return (

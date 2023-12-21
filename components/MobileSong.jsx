@@ -4,16 +4,24 @@ import { Icons } from "./Icons";
 import { usePlayer } from "../hooks/usePlayer";
 import { useGetSongById } from "../hooks/useGetSongById";
 import { useLoadImage } from "../hooks/useLoadImage";
+import { useImageColor } from "../hooks/useImageColor";
 
 export const MobileSong = () => {
   const { activeId, onPlay, onPause, isPlaying, songProgress } = usePlayer();
   const { song } = useGetSongById(activeId);
   const imageUrl = useLoadImage(song?.image_path);
-
+  const { color } = useImageColor();
   if (!song) return null;
 
   return (
-    <div className="w-[calc(100%-24px)] rounded-md mx-auto sticky bottom-[80px] bg-green-900 h-14 z-50 sm:hidden">
+    <div
+      className="w-[calc(100%-24px)] rounded-md mx-auto sticky bottom-[80px] bg-green-900 h-14 z-50 sm:hidden"
+      style={
+        color && {
+          backgroundColor: `rgb(${color})`,
+        }
+      }
+    >
       <div className="w-full h-full p-2 gap-x-2 flex items-center">
         <Image
           width={40}

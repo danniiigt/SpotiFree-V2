@@ -4,9 +4,11 @@ import { usePlayer } from "../hooks/usePlayer";
 import { MobileMenu } from "../components/MobileMenu";
 import { MobileSong } from "../components/MobileSong";
 import { cn } from "../lib/utils";
+import { useImageColor } from "../hooks/useImageColor";
 
 export const MainLayout = ({ children }) => {
   const { activeId } = usePlayer();
+  const { color } = useImageColor();
 
   return (
     <div className="min-w-full min-h-screen relative">
@@ -24,6 +26,10 @@ export const MainLayout = ({ children }) => {
                 ? "max-h-[calc(100vh-80px)] sm:max-h-[calc(100vh-96px)] lg:max-h-[calc(100vh-91px)]"
                 : "max-h-screen"
             }`}
+            style={{
+              // modify the from color
+              background: `linear-gradient(180deg, rgba(${color},0.6) 5%, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.9) 90%)`,
+            }}
           >
             {/* <Header /> */}
             <div className="p-4 lg:p-6">{children}</div>

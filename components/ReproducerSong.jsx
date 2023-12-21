@@ -3,13 +3,17 @@ import { useLoadImage } from "../hooks/useLoadImage";
 import { useUser } from "../hooks/useUser";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import { mutate } from "swr";
+import toast from "react-hot-toast";
+import * as Vibrant from "node-vibrant";
+import { useImageColor } from "../hooks/useImageColor";
 
 export const ReproducerSong = ({ song, songFavUsers }) => {
+  const [isMounted, setIsMounted] = useState(false);
   const [isSongLiked, setIsSongLiked] = useState(false);
   const imageUrl = useLoadImage(song.image_path);
   const { user } = useUser();
+  const { setColor } = useImageColor();
   const supabaseClient = useSupabaseClient();
 
   const handleLike = async (songId) => {
@@ -33,6 +37,30 @@ export const ReproducerSong = ({ song, songFavUsers }) => {
     mutate(user.id);
   };
 
+  const printMediaSession = () => {
+    if (!("mediaSession" in navigator)) return;
+
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: song.title,
+      artist: song.author,
+      artwork: [
+        {
+          src: imageUrl,
+          sizes: "768x768",
+          type: "image/png",
+        },
+      ],
+    });
+  };
+
+  const getVibrantColors = () => {
+    const vibrantColors = new Vibrant(imageUrl);
+    vibrantColors.getPalette((err, palette) => {
+      const rgb = palette.DarkVibrant._rgb.join(",");
+      setColor(rgb);
+    });
+  };
+
   useEffect(() => {
     const isSongLikedByUser = songFavUsers?.some(
       (favUser) => favUser.user_id === user?.id
@@ -40,6 +68,20 @@ export const ReproducerSong = ({ song, songFavUsers }) => {
 
     setIsSongLiked(isSongLikedByUser);
   }, [song, songFavUsers, user]);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (song) printMediaSession();
+  }, [song]);
+
+  useEffect(() => {
+    if (imageUrl) getVibrantColors();
+  }, [imageUrl]);
+
+  if (!isMounted) return null;
 
   return (
     <div className="flex gap-x-4 items-center w-fit col-span-3 sm:col-span-1">
