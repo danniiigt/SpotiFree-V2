@@ -1,19 +1,32 @@
 import Image from "next/image";
 import React from "react";
-import { useLoadImage } from "../hooks/useLoadImage";
 import Link from "next/link";
+import { useLoadImage } from "../hooks/useLoadImage";
+import { useUser } from "../hooks/useUser";
+import useAuthModal from "../hooks/useAuthModal";
 
 export const HorizontalCard = ({
   image,
   customImage,
-  text = "Canciones que te gustan",
+  text = "Canciónes que te gustan",
   small,
   url = "/",
+  checkAuth,
 }) => {
   const imageUrl = useLoadImage(image);
+  const authModal = useAuthModal();
+  const { user } = useUser();
+
+  const handleAuth = (e) => {
+    if (!user && checkAuth) {
+      e.preventDefault();
+      authModal.onOpen();
+    }
+  };
 
   return (
     <Link
+      onClick={handleAuth}
       href={url}
       className={` ${
         small ? "bg-neutral-600/10" : "bg-neutral-100/10"

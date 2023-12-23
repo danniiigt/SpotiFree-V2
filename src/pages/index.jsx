@@ -3,6 +3,8 @@ import { HorizontalCard } from "../../components/HorizontalCard";
 import { Songs } from "../../components/Songs";
 import { HeaderAuth } from "../../components/HeaderAuth";
 import { RandomImage } from "../../components/RandomImage";
+import { MostListenedImage } from "../../components/MostListenedImage";
+import { LoveImage } from "../../components/LoveImage";
 
 const Home = () => {
   return (
@@ -18,15 +20,15 @@ const Home = () => {
         <HeaderAuth />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-        <HorizontalCard image="/images/liked.png" url="/liked" />
+        <HorizontalCard customImage={<LoveImage />} url="/liked" checkAuth />
         <HorizontalCard
           customImage={<RandomImage className="h-16 w-16" />}
           text="Canciónes aleatorias"
           url="/random"
         />
         <HorizontalCard
-          image="/images/top-50-global.jpg"
-          text="Top 50: Global"
+          customImage={<MostListenedImage />}
+          text="Canciónes más escuchadas"
         />
       </div>
 

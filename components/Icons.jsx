@@ -40,9 +40,23 @@ import {
   SkipForward,
   SkipBack,
   Clock,
+  Music,
+  Heart,
+  Lock,
 } from "lucide-react";
 
 export const Icons = {
+  close: X,
+  spinner: Loader2,
+  chevronLeft: ChevronLeft,
+  chevronRight: ChevronRight,
+  trash: Trash,
+  post: FileText,
+  page: File,
+  media: Image,
+  music: Music,
+  lock: Lock,
+  heart: Heart,
   play: (props) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -69,6 +83,16 @@ export const Icons = {
         d="M6.75 5.25a.75.75 0 01.75-.75H9a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H7.5a.75.75 0 01-.75-.75V5.25zm7.5 0A.75.75 0 0115 4.5h1.5a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H15a.75.75 0 01-.75-.75V5.25z"
         clipRule="evenodd"
       />
+    </svg>
+  ),
+  heartSolid: (props) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
     </svg>
   ),
   logo: (props) => (
@@ -117,14 +141,6 @@ export const Icons = {
       <path d="M4 4v16" />
     </svg>
   ),
-  close: X,
-  spinner: Loader2,
-  chevronLeft: ChevronLeft,
-  chevronRight: ChevronRight,
-  trash: Trash,
-  post: FileText,
-  page: File,
-  media: Image,
   settings: (props) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

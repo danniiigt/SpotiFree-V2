@@ -1,5 +1,6 @@
 import { usePlayer } from "./usePlayer";
 import { useUser } from "./useUser";
+import { supabase } from "../supabase/client";
 import useAuthModal from "./useAuthModal";
 
 export const useOnPlay = (song) => {
@@ -15,7 +16,7 @@ export const useOnPlay = (song) => {
   const authModal = useAuthModal();
   const { user } = useUser();
 
-  const onPlay = (id) => {
+  const onPlay = async (id) => {
     if (!user) {
       authModal.onOpen();
       return;
@@ -24,6 +25,11 @@ export const useOnPlay = (song) => {
     if (id === activeId) {
       return;
     }
+
+    await supabase
+      .from("songs")
+      .update({ played_times: song.played_times + 1 })
+      .eq("id", id);
 
     setLoading(true);
     setCurrentSongTime(0);

@@ -8,7 +8,7 @@ export const AsideMenu = () => {
   return (
     <section
       className={`flex-col w-1/3 gap-y-2 max-w-[280px] hidden md:flex ${
-        activeId ? "max-h-[calc(100vh-91px)]" : "max-h-screen"
+        activeId ? "max-h-[calc(100dvh-91px)]" : "max-h-screen"
       }`}
     >
       <Menu />

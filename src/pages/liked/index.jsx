@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { PlaylistBanner } from "../../../components/PlaylistBanner";
 import { LikedSongs } from "../../../components/LikedSongs";
+import { LoveImage } from "../../../components/LoveImage";
 
 const LikedSongsPage = () => {
   return (
@@ -9,8 +10,8 @@ const LikedSongsPage = () => {
         <title>Spotifree</title>
       </Head>
       <PlaylistBanner
-        title="Canciones que te gustan"
-        image="/images/liked.png"
+        customImage={<LoveImage className="h-36 w-36" iconSize="h-12 w-12" />}
+        title="Canciónes que te gustan"
       />
       <div className="mt-8">
         <LikedSongs />

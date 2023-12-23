@@ -4,6 +4,7 @@ import { MediaItem } from "./MediaItem";
 import useAuthModal from "../hooks/useAuthModal";
 import useUploadModal from "../hooks/useUploadModal";
 import useSWR from "swr";
+import { Icons } from "./Icons";
 
 export const Library = () => {
   const { user } = useUser();
@@ -65,13 +66,22 @@ export const Library = () => {
           </svg>
         </button>
       </div>
-      <div>
+      {user && songs?.length > 0 && (
         <div className="p-2 space-y-2">
           {songs?.map((song) => (
             <MediaItem key={song.id} song={song} />
           ))}
         </div>
-      </div>
+      )}
+
+      {!user && (
+        <div className="flex flex-col space-y-6 h-[calc(100%-60px)] items-center justify-center">
+          <Icons.lock className="w-9 h-9" strokeWidth={1} />
+          <p className="text-neutral-500 text-center px-4">
+            Inicia sesión para ver las canciones que has subido a la plataforma
+          </p>
+        </div>
+      )}
     </div>
   );
 };

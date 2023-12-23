@@ -5,15 +5,12 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useEffect, useState } from "react";
 import { mutate } from "swr";
 import toast from "react-hot-toast";
-import * as Vibrant from "node-vibrant";
-import { useImageColor } from "../hooks/useImageColor";
 
 export const ReproducerSong = ({ song, songFavUsers }) => {
   const [isMounted, setIsMounted] = useState(false);
   const [isSongLiked, setIsSongLiked] = useState(false);
   const imageUrl = useLoadImage(song.image_path);
   const { user } = useUser();
-  const { setColor } = useImageColor();
   const supabaseClient = useSupabaseClient();
 
   const handleLike = async (songId) => {
@@ -53,14 +50,6 @@ export const ReproducerSong = ({ song, songFavUsers }) => {
     });
   };
 
-  const getVibrantColors = () => {
-    const vibrantColors = new Vibrant(imageUrl);
-    vibrantColors.getPalette((err, palette) => {
-      const rgb = palette.DarkVibrant._rgb.join(",");
-      setColor(rgb);
-    });
-  };
-
   useEffect(() => {
     const isSongLikedByUser = songFavUsers?.some(
       (favUser) => favUser.user_id === user?.id
@@ -76,10 +65,6 @@ export const ReproducerSong = ({ song, songFavUsers }) => {
   useEffect(() => {
     if (song) printMediaSession();
   }, [song]);
-
-  useEffect(() => {
-    if (imageUrl) getVibrantColors();
-  }, [imageUrl]);
 
   if (!isMounted) return null;
 

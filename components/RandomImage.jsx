@@ -4,7 +4,8 @@ export const RandomImage = ({ iconSize = "small", className }) => {
   return (
     <div
       className={cn(
-        "h-16 w-16 rounded aspect-square bg-gradient-to-b from-[#FE5135] to-[#e2360a] flex items-center justify-center text-gray-200",
+        // "h-16 w-16 rounded aspect-square bg-gradient-to-b from-[#FE5135] to-[#e2360a] flex items-center justify-center text-gray-200",
+        "h-16 w-16 rounded aspect-square bg-gradient-to-br from-[#21ad4b] to-[#78be9b] via-30% via-[#0d963a] flex items-center justify-center text-gray-200",
         className
       )}
     >
