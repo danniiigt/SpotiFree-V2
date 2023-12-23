@@ -1,9 +1,8 @@
 import Image from "next/image";
-import { useUser } from "../hooks/useUser";
 
-export const PlaylistBanner = ({ title, image, customImage }) => {
+export const PlaylistBanner = ({ title, subtitle, image, customImage }) => {
   return (
-    <div className="flex items-center gap-4">
+    <header className="flex items-center gap-4">
       {image && (
         <Image
           src={image}
@@ -16,14 +15,15 @@ export const PlaylistBanner = ({ title, image, customImage }) => {
         />
       )}
 
-      {customImage && <div className="w-[150px] h-[150px]">{customImage}</div>}
+      {customImage && <div>{customImage}</div>}
 
       <div>
-        <h1>Playlist</h1>
-        <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold">
+        <h3 className="hidden sm:block">Playlist</h3>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-extrabold">
           {title}
         </h1>
+        <p className="text-neutral-500 text-sm sm:text-base">{subtitle}</p>
       </div>
-    </div>
+    </header>
   );
 };

@@ -43,6 +43,8 @@ import {
   Music,
   Heart,
   Lock,
+  Headphones,
+  RefreshCcw,
 } from "lucide-react";
 
 export const Icons = {
@@ -53,10 +55,12 @@ export const Icons = {
   trash: Trash,
   post: FileText,
   page: File,
+  headPhones: Headphones,
   media: Image,
   music: Music,
   lock: Lock,
   heart: Heart,
+  refreshCCW: RefreshCcw,
   play: (props) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

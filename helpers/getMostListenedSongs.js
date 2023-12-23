@@ -1,7 +1,12 @@
 import { supabase } from "../supabase/client";
 
-export const getRandomSongs = async () => {
-  const { data, error } = await supabase.from("random_songs_view").select("*");
+export const getMostListenedSongs = async () => {
+  const { data, error } = await supabase
+    .from("songs")
+    .select("*")
+    .order("played_times", { ascending: false })
+    .limit(50);
+
   const { data: likedData, error: likedError } = await supabase
     .from("liked_songs")
     .select("*");

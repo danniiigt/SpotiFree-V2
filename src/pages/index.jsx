@@ -29,6 +29,7 @@ const Home = () => {
         <HorizontalCard
           customImage={<MostListenedImage />}
           text="Canciónes más escuchadas"
+          url="/most-listened"
         />
       </div>
 

@@ -10,10 +10,12 @@ export const RandomSongs = () => {
   );
 
   return (
-    <div>
+    <>
       {!isLoading &&
         randomSongs?.length > 0 &&
-        randomSongs?.map((song) => <MediaItem key={song.id} song={song} />)}
-    </div>
+        randomSongs?.map((song) => (
+          <MediaItem key={song.id} song={song} showLikedCount showPlayedCount />
+        ))}
+    </>
   );
 };
